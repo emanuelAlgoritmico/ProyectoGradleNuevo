@@ -17,7 +17,7 @@ import java.io.Serializable;
 @SessionScoped
 public class ControladorAsingaturas implements Serializable {
     
-    private Asignatura asignatura = nSew Asignatura("750014C", "FPOE", (byte)3, (byte)3);
+    private Asignatura asignatura = new Asignatura("750014C", "FPOE", (byte)3, (byte)3);
     
     public Asignatura getAsignatura() {
         return asignatura;
