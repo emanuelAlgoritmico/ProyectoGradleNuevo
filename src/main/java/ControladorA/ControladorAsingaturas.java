@@ -21,6 +21,6 @@ public class ControladorAsingaturas implements Serializable {
     
     public Asignatura getAsignatura() {
         return asignatura;
-    }
+    } // comentario
 }
 
