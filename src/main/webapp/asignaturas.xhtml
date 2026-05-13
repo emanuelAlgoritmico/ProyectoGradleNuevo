@@ -37,6 +37,27 @@
 
         </p:card>
         </h:form>
+        
+        <p:card style="width: 50rem; margin-bottom: 2em"> 
+            <p:dataTable var="asig" value="#{dtBasicView.products}"> 
+                <p:column headerText="Código">  
+                    <h:outputText value="#{asignCtrl.asignatura.codigo}" />  
+                </p:column>
+        
+            <p:column headerText="Nombre"> 
+                <h:outputText value="#{asignCtrl.asignatura.nombre}" />
+            </p:column>
+        
+            <p:column headerText="Créditos">
+                <h:outputText value="#{asignCtrl.asignatura.creditos}" /> 
+            </p:column>
+        
+            <p:column headerText="Intensidad"> 
+                <h:outputText value="#{asignCtrl.asignatura.intensidad}" />
+            </p:column>
+        </p:dataTable>
+    </p:card>
+            
     </h:body>
      
 </html>
