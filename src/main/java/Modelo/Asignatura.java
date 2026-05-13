@@ -4,11 +4,19 @@
  */
 package Modelo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /**
  *
  * @author Sala Sistemas
  */
+
+@Entity
+
+
 public class Asignatura {
+    @Id
     private String codigo;
     private String nombre;
     private byte creditos;
@@ -37,6 +45,23 @@ public class Asignatura {
 
     public byte getIntensidad() {
         return intensidad;
+    }
+
+    // setter
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCreditos(byte creditos) {
+        this.creditos = creditos;
+    }
+
+    public void setIntensidad(byte intensidad) {
+        this.intensidad = intensidad;
     }
     
     
