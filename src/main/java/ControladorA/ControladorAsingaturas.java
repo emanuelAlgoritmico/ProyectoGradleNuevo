@@ -4,7 +4,7 @@
  */
 package ControladorA;
 
-import Modelo.Asignatura;
+import modelo.Asignatura;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;

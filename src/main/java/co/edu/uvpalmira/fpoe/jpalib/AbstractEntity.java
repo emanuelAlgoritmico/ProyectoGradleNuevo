@@ -6,6 +6,7 @@
 package co.edu.uvpalmira.fpoe.jpalib;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,6 +18,7 @@ import java.util.Objects;
  *
  * @author Sistemas
  */
+
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {
 
