@@ -10,6 +10,7 @@ import jakarta.persistence.Persistence;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.AfterClass;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
@@ -50,6 +51,7 @@ public class AsignaturaDAOTest {
             //fail("The test case is a prototype.");
         } catch (Exception ex) {
             Logger.getLogger(AsignaturaDAOTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail();
         }
         
     }
