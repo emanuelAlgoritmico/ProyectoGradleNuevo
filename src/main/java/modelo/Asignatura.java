@@ -85,6 +85,10 @@ public class Asignatura extends AbstractEntity {
     public void setIntensidad(byte intensidad) {
         this.intensidad = intensidad;
     }
+
+    public String getDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
