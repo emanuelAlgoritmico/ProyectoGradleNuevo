@@ -9,57 +9,51 @@
         <title>Facelets Hello Greeting</title>
     </h:head>
     <h:body>
-         
-        <h:form>
 
-        <p:card style="width: 35rem; margin-bottom: 2em">
-            <f:facet name="title">Gestionar Asignaturas</f:facet>
+        <h:form id="formulario">                          
+            <p:card style="width: 35rem; margin-bottom: 2em">
+                <f:facet name="title">Gestionar Asignaturas</f:facet>
 
-            <h:panelGrid columns="3">
+                <h:panelGrid columns="3">
+                    <p:outputLabel for="txfCodigo" value="Código : " />
+                    <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}"/>
+                    <p:message for="txfCodigo"/>
+                    <p:outputLabel for="txfNombre" value="Nombre : " />
+                    <p:inputText id="txfNombre" value="#{asignCtrl.asignatura.nombre}"/>
+                    <p:message for="txfNombre"/>
+                    <p:outputLabel for="txfCreditos" value="Créditos : " />
+                    <p:inputNumber id="txfCreditos" value="#{asignCtrl.asignatura.creditos}"/>
+                    <p:message for="txfCreditos"/>
+                    <p:outputLabel for="txfIntensidad" value="Intensidad : " />
+                    <p:inputNumber id="txfIntensidad" value="#{asignCtrl.asignatura.intensidad}"/>
+                    <p:message for="txfIntensidad"/>
+                </h:panelGrid>
 
-                <p:outputLabel for="txfCodigo" value="Código : " />
-                <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}"/>
-                <p:message for="txfCodigo"/>
+                <p:messages id="mensajes" globalOnly="true" closable="true"/>
 
-                <p:outputLabel for="txfNombre" value="Nombre : " />
-                <p:inputText id="txfNombre" value="#{asignCtrl.asignatura.nombre}"/>
-                <p:message for="txfNombre"/>
+                <f:facet name="footer">
+                    <p:commandButton icon="pi pi-check" value="Guardar"
+                                     action="#{asignCtrl.guardar()}"
+                                     process="@this txfCodigo txfNombre txfCreditos txfIntensidad"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad tabla"
+                                     />
+                    <p:commandButton icon="pi pi-check" value="Cancel"
+                                     styleClass="ui-button-secondary"
+                                     style="margin-left: .5em"
+                                     action="#{asignCtrl.cancelar()}"
+                                     process="@this"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad"
+                                     />
+                </f:facet>
+            </p:card>
+        </h:form>                                         
 
-                <p:outputLabel for="txfCreditos" value="Créditos : " />
-                <p:inputNumber id="txfCreditos" value="#{asignCtrl.asignatura.creditos}"/>
-                <p:message for="txfCreditos"/>
-
-                <p:outputLabel for="txfIntensidad" value="Intensidad : " />
-                <p:inputNumber id="txfIntensidad" value="#{asignCtrl.asignatura.intensidad}"/>
-                <p:message for="txfIntensidad"/>
-
-            </h:panelGrid>
-
-        </p:card>
-        </h:form>
-        
-        <p:card style="width: 50rem; margin-bottom: 2em"> 
-            <p:dataTable var="asig" value="#{dtBasicView.products}"> 
-                <p:column headerText="Código">  
-                    <h:outputText value="#{asignCtrl.asignatura.codigo}" />  
-                </p:column>
-        
-            <p:column headerText="Nombre"> 
-                <h:outputText value="#{asignCtrl.asignatura.nombre}" />
-            </p:column>
-        
-            <p:column headerText="Créditos">
-                <h:outputText value="#{asignCtrl.asignatura.creditos}" /> 
-            </p:column>
-        
-            <p:column headerText="Intensidad"> 
-                <h:outputText value="#{asignCtrl.asignatura.intensidad}" />
-            </p:column>
+        <p:dataTable id="tabla" value="#{asignCtrl.asignaturas}" var="obj">
+            <p:column headerText="Código" > #{obj.codigo} </p:column>              
+            <p:column headerText="Nombre" > #{obj.nombre} </p:column>              
+            <p:column headerText="Créditos" > #{obj.creditos} </p:column>            
+            <p:column headerText="Intensidad"> #{obj.intensidad}</p:column>
         </p:dataTable>
-    </p:card>
-            
+
     </h:body>
-     
 </html>
-
-

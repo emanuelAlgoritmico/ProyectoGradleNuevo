@@ -4,13 +4,11 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>modelo.Asignatura</class>
     <properties>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fpoedb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
-      <property name="jakarta.persistence.jdbc.user" value="root"/>
-      <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="jakarta.persistence.jdbc.password" value="roottoor"/>
-      <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
-      
-      <property name="jakarta.persistence.scheme-generation.script.action" value="datos.sql" /> 
+      <property name="jakarta.persistence.scheme-generation.script.action" value="datos.sql"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fpoedb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="roottoor"/>
     </properties>
   </persistence-unit>
 </persistence>

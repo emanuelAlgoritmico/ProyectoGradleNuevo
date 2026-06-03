@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import logica.ILogica;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 
 /**
@@ -30,6 +31,10 @@ public class ControladorAsingaturas implements Serializable {
     
     private Asignatura asignatura = new Asignatura("750014C", "FPOE", (byte)3, (byte)3);
     
+    public List<Asignatura> getAsignaturas() {
+        return this.logica.buscarAsignatuar();
+    }
+    
     public Asignatura getAsignatura() {
         return asignatura;
     } 
@@ -37,7 +42,7 @@ public class ControladorAsingaturas implements Serializable {
     public void guardar() {
         try {
             this.logica.crearAsignatura(this.asignatura);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La asignatura" + this.asignatura.getDescription() + " fue guardado"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La asignatura " + this.asignatura.getNombre()+ " fue guardado"));
             this.asignatura = new Asignatura();
         } catch (SQLIntegrityConstraintViolationException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error de restricciones", ex.getLocalizedMessage()));
@@ -46,6 +51,13 @@ public class ControladorAsingaturas implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error no identificado. Contacte con el desarrollador", ex.getLocalizedMessage()));
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void cancelar() {
+        this.asignatura = new Asignatura();
+        FacesContext.getCurrentInstance().addMessage(
+                null, new FacesMessage("Proceso cancelado")
+        );
     }
 }
 
