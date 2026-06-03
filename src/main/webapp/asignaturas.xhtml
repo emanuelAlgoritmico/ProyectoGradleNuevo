@@ -15,8 +15,8 @@
                 <f:facet name="title">Gestionar Asignaturas</f:facet>
 
                 <h:panelGrid columns="3">
-                    <p:outputLabel for="txfCodigo" value="Código : " />
-                    <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}"/>
+                    <p:outputLabel for="txfCodigo" value="Código : " /> 
+                    <p:inputText id="txfCodigo" value="#{asignCtrl.asignatura.codigo}" required="true"/>
                     <p:message for="txfCodigo"/>
                     <p:outputLabel for="txfNombre" value="Nombre : " />
                     <p:inputText id="txfNombre" value="#{asignCtrl.asignatura.nombre}"/>
