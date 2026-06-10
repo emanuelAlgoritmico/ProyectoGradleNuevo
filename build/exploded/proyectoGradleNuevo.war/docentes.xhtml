@@ -5,41 +5,53 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core">
-
     <h:head>
-        <title>Facelets Hello Greeting</title>
+        <title>Gestionar Docentes</title>
     </h:head>
-
     <h:body>
-
-        <h:form>
-
+        <h:form id="formulario">                          
             <p:card style="width: 35rem; margin-bottom: 2em">
                 <f:facet name="title">Gestionar Docentes</f:facet>
-
                 <h:panelGrid columns="3">
-
-                    <p:outputLabel for="txfCodigo" value="Código : " />
-                    <p:inputText id="txfCodigo"/>
+                    <p:outputLabel for="txfCodigo" value="Código : " /> 
+                    <p:inputText id="txfCodigo" value="#{docenteCtrl.docente.codigo}">
+                        <f:convertNumber integerOnly="true"/>
+                    </p:inputText>
                     <p:message for="txfCodigo"/>
-
                     <p:outputLabel for="txfNombre" value="Nombre : " />
-                    <p:inputText id="txfNombre"/>
+                    <p:inputText id="txfNombre" value="#{docenteCtrl.docente.nombre}"/>
                     <p:message for="txfNombre"/>
-
                     <p:outputLabel for="txfApellido" value="Apellido : " />
-                    <p:inputText id="txfApellido"/>
+                    <p:inputText id="txfApellido" value="#{docenteCtrl.docente.apellido}"/>
                     <p:message for="txfApellido"/>
-
-                    <p:outputLabel for="txfGenero" value="Genero : " />
-                    <p:inputText id="txfGenero"/>
+                    <p:outputLabel for="txfGenero" value="Género : " />
+                    <p:inputText id="txfGenero" value="#{docenteCtrl.docente.genero}"/>
                     <p:message for="txfGenero"/>
-
                 </h:panelGrid>
-
+                <p:messages id="mensajes" globalOnly="true" closable="true"/>
+                <f:facet name="footer">
+                    <p:commandButton icon="pi pi-check" value="Guardar"
+                                     action="#{docenteCtrl.guardar()}"
+                                     process="@this txfCodigo txfNombre txfApellido txfGenero"
+                                     update="mensajes txfCodigo txfNombre txfApellido txfGenero tabla"
+                                     />
+                    <p:commandButton icon="pi pi-check" value="Cancelar"
+                                     styleClass="ui-button-secondary"
+                                     style="margin-left: .5em"
+                                     action="#{docenteCtrl.cancelar()}"
+                                     process="@this"
+                                     update="mensajes txfCodigo txfNombre txfApellido txfGenero"
+                                     />
+                </f:facet>
             </p:card>
 
-        </h:form>
+            <p:dataTable id="tabla" value="#{docenteCtrl.docentes}" var="obj">
+                <p:column headerText="Código">#{obj.codigo}</p:column>              
+                <p:column headerText="Nombre">#{obj.nombre}</p:column>              
+                <p:column headerText="Apellido">#{obj.apellido}</p:column>            
+                <p:column headerText="Género">#{obj.genero}</p:column>
+            </p:dataTable>
 
+        </h:form> 
     </h:body>
 </html>

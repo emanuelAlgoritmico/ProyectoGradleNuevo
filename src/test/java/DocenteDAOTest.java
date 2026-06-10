@@ -53,7 +53,7 @@ public class DocenteDAOTest {
         
         try {
             System.out.println("Insertar");
-            Docente docen = new Docente(11136334, "Perez", "Perez", "Masculino");
+            Docente docen = new Docente(11136334, "Pepe", "Perez", "Masculino");
             docenteDAO.create(docen);
             this.id = docen.getId();
             System.out.println(this.id);
@@ -61,14 +61,14 @@ public class DocenteDAOTest {
             
             System.out.println("Buscar");
             docen = null;
-            docen = docenteDAO.buscarPorCodigo("11136334");
+            docen = docenteDAO.buscarPorCodigo(11136334);
             Assert.assertEquals("Pepe", docen.getNombre());
             
-            docen.setNombre("Pepe Perez");
+            docen.setNombre("Juan");
             this.docenteDAO.edit(docen);
             
-            docen = docenteDAO.buscarPorCodigo("11136334");
-            Assert.assertEquals("Pepe Perez", docen.getNombre());
+            docen = docenteDAO.buscarPorCodigo(11136334);
+            Assert.assertEquals("Juan", docen.getNombre());
             
             //System.out.println("buscarPorCodigo");
             //String codigo = "";

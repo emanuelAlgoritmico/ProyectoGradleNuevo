@@ -19,7 +19,7 @@ public class DocenteDAO extends AbstractDAO<Docente>{
         super(Docente.class, emf);
     }
     
-    public Docente buscarPorCodigo(String codigo) {
+    public Docente buscarPorCodigo(int codigo) {
         EntityManager em = super.getEntityManager();
         return (Docente) em.createNamedQuery("Docente.buscarPorCodigo")
                 .setParameter("codigo", codigo)

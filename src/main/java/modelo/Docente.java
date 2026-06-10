@@ -28,19 +28,15 @@ import jakarta.validation.constraints.NotEmpty;
 @Entity
 public class Docente extends AbstractEntity{
     
-    @NotEmpty
-    @Column(nullable = false, unique = false, length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     private int codigo;
     
-    @NotEmpty
     @Column(nullable = false, unique = false, length = 100)
     private String nombre;
     
-    @NotEmpty
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(nullable = false, unique = false, length = 100)
     private String apellido;
     
-    @NotEmpty
     @Column(nullable = false, unique = false, length = 100)
     private String genero;
     
